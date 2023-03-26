@@ -51,8 +51,8 @@ export const SidebarSettings: FC<Props> = ({
           onToggleLightMode(lightMode === 'light' ? 'dark' : 'light')
         }
       />
-
-      <Key apiKey={apiKey} onApiKeyChange={onApiKeyChange} />
+      {/* 暂时使用server端提供的api key */}
+      {/* <Key apiKey={apiKey} onApiKeyChange={onApiKeyChange} /> */}
     </div>
   );
 };

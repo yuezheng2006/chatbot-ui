@@ -10,14 +10,12 @@ const handler = async (req: Request): Promise<Response> => {
     const { key } = (await req.json()) as {
       key: string;
     };
-
     const response = await fetch(`${OPENAI_API_HOST}/v1/models`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${key ? key : process.env.OPENAI_API_KEY}`,
       },
     });
-
     if (response.status === 401) {
       return new Response(response.body, {
         status: 500,
